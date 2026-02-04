@@ -334,20 +334,19 @@ function initTypingEffect() {
     setTimeout(typeWriter, 1000);
 }
 
-// Resume download functionality
+// Resume view functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const downloadBtn = document.getElementById('download-resume');
+    const viewBtn = document.getElementById('view-resume');
     const modal = document.getElementById('resume-modal');
     const closeModal = document.querySelector('.close-modal');
     const closeModalBtn = document.getElementById('close-modal-btn');
-    const downloadResumeBtn = document.getElementById('download-resume-btn');
     const resumeIframe = document.getElementById('resume-iframe');
     
-    // Path to your resume file (update this with your actual resume path)
-    const RESUME_PATH = './assets/resume.pdf'; // Change this to your resume file path
+    // Path to your resume file
+    const RESUME_PATH = './Resume_inter.pdf';
     
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', (e) => {
+    if (viewBtn) {
+        viewBtn.addEventListener('click', (e) => {
             e.preventDefault();
             openResumeModal();
         });
@@ -385,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="resume-error">
                 <i class="fas fa-exclamation-triangle"></i>
                 <h3>Resume Preview Unavailable</h3>
-                <p>Unable to load resume preview. You can still download the file.</p>
+                <p>Unable to load resume preview. Please try again later.</p>
             </div>
         `;
     }
@@ -393,28 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadResumePreview() {
         const previewContainer = document.querySelector('.resume-preview-container');
         
-        // Check if resume file exists by trying to load it
-        const testImage = new Image();
-        testImage.onload = function() {
-            // File exists, show iframe
-            previewContainer.innerHTML = `<iframe id="resume-iframe" src="${RESUME_PATH}" frameborder="0"></iframe>`;
-            
-            const iframe = document.getElementById('resume-iframe');
-            iframe.onload = function() {
-                // Resume loaded successfully
-            };
-            
-            iframe.onerror = function() {
-                showResumeError();
-            };
-        };
-        
-        testImage.onerror = function() {
-            // File doesn't exist or can't be loaded
-            showResumeError();
-        };
-        
-        // For PDF files, we'll directly try to load in iframe
+        // Load resume in iframe after a short delay
         setTimeout(() => {
             previewContainer.innerHTML = `<iframe id="resume-iframe" src="${RESUME_PATH}" frameborder="0"></iframe>`;
             
@@ -428,24 +406,12 @@ document.addEventListener('DOMContentLoaded', () => {
             iframe.onload = function() {
                 clearTimeout(loadTimeout);
             };
+            
+            iframe.onerror = function() {
+                clearTimeout(loadTimeout);
+                showResumeError();
+            };
         }, 1000);
-    }
-    
-    function downloadResume() {
-        const link = document.createElement('a');
-        link.href = RESUME_PATH;
-        link.download = 'Vaibhav_Kumar_Yadav_Resume.pdf'; // Customize the download filename
-        link.target = '_blank';
-        
-        // Try to download
-        try {
-            link.click();
-            showNotification('Resume download started!', 'success');
-        } catch (error) {
-            // Fallback: open in new tab
-            window.open(RESUME_PATH, '_blank');
-            showNotification('Resume opened in new tab', 'info');
-        }
     }
     
     // Event listeners for modal
@@ -455,10 +421,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (closeModalBtn) {
         closeModalBtn.addEventListener('click', closeResumeModal);
-    }
-    
-    if (downloadResumeBtn) {
-        downloadResumeBtn.addEventListener('click', downloadResume);
     }
     
     // Close modal when clicking outside

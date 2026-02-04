@@ -799,6 +799,15 @@ section {
     height: 100%;
     min-height: 600px;
     border: none;
+    pointer-events: auto;
+}
+
+/* Disable right-click on resume iframe */
+#resume-iframe {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .modal-actions {
