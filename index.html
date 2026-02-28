@@ -1,690 +1,561 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Kumar Yadav - Portfolio</title>
+    <title>Vaibhav Kumar Yadav | Portfolio</title>
+    <!-- Modern Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <!-- Custom Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Background Particles Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">VKY</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="neon-text">&lt;</span><span class="logo-text">VAIBHAV</span><span
+                class="neon-text">/&gt;</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <canvas id="hero-canvas"></canvas>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-name">
-                    <span class="text-3d">Vaibhav</span>
-                    <span class="text-3d">Kumar</span>
-                    <span class="text-3d">Yadav</span>
-                </h1>
-                <p class="hero-tagline">CSE (AI & ML) Student | Full Stack Developer | Android Developer | Cybersecurity Enthusiast</p>
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary" id="view-resume">
-                        <i class="fas fa-eye"></i>
-                        View Resume
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Contact Me
-                    </a>
-                </div>
+        <div class="hero-content glass glow-border">
+            <p class="subtitle neon-text uppercase tracking-widest">Building intelligent, secure, and scalable solutions
+            </p>
+            <h1 class="title" style="font-size: 3.5rem;">Vaibhav Kumar Yadav <br> <span class="typing-container"
+                    style="font-size: 2.2rem; margin-top: 15px;"><span class="typed-text"></span><span
+                        class="cursor">|</span></span></h1>
+            <p class="description">B.Tech CSE (AI & ML) student with hands-on experience in full-stack web, Android, and
+                AI-based applications. Passionate about solving real-world problems with secure software.</p>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                <a href="Resume_inter.pdf" target="_blank" class="btn btn-secondary glass hover-glow">View Resume <i
+                        class="fas fa-eye"></i></a>
+            </div>
+            <div class="social-links mt-4" style="justify-content: center; margin-top: 30px;">
+                <a href="https://github.com" target="_blank" class="social-icon hover-glow" aria-label="GitHub"
+                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon hover-glow" aria-label="LinkedIn"
+                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:yadavvaibhav688@gmail.com" class="social-icon hover-glow" aria-label="Email"
+                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
+        <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-card glass-card">
-                    <div class="card-content">
-                        <h3>Professional Summary</h3>
-                        <p>Second-year B.Tech CSE (AI & ML) student with strong hands-on experience in full-stack web development, Android applications, and cybersecurity. Skilled in building secure, scalable, real-world applications.</p>
-                    </div>
-                </div>
-                <div class="about-card glass-card">
-                    <div class="card-content">
-                        <h3>Career Goals</h3>
-                        <p>Aspiring to become a leading AI/ML engineer and cybersecurity expert, contributing to innovative solutions that make technology safer and more intelligent.</p>
-                    </div>
-                </div>
-                <div class="about-card glass-card">
-                    <div class="card-content">
-                        <h3>Current Focus</h3>
-                        <p>Developing expertise in machine learning algorithms, secure application development, and modern web technologies while maintaining academic excellence.</p>
-                    </div>
+    <section id="about" class="about section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container reveal"
+            style="display: flex; flex-direction: column; gap: 60px; align-items: center; width: 100%;">
+            <div class="about-text"
+                style="display: flex; flex-direction: column; justify-content: center; text-align: center; max-width: 900px;">
+                <h3 class="neon-text" style="font-size: 2rem; margin-bottom: 25px; letter-spacing: 1px;">Hello, I'm
+                    Vaibhav</h3>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px;">
+                    A highly driven <span class="neon-purple-text font-bold" style="color: var(--text-main);">B.Tech CSE
+                        (AI & ML)</span> student with hands-on expertise in formulating full-stack web architectures,
+                    scalable Android ecosystems, and intelligent AI models.
+                </p>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 35px;">
+                    I possess a rigorous command over Data Structures, Cybersecurity, and intricate System Design. My
+                    absolute passion lies in translating complex real-world problems into streamlined, automated, and
+                    mathematically robust software solutions.
+                </p>
+
+                <h4
+                    style="margin-bottom: 20px; color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.1rem; text-transform: uppercase;">
+                    Core Competencies</h4>
+                <div class="skill-tags" style="justify-content: center; gap: 15px;">
+                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
+                            class="fas fa-sitemap mr-2"></i> Problem Solving (DSA)</span>
+                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
+                            class="fas fa-shield-alt mr-2"></i> Cybersecurity</span>
+                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
+                            class="fas fa-network-wired mr-2"></i> System Design</span>
+                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
+                            class="fas fa-brain mr-2"></i> AI & ML</span>
+                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
+                            class="fas fa-layer-group mr-2"></i> Full-Stack Dev</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline-3d">
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-year">2024 - 2028</div>
-                        <h3>B.Tech – Computer Science Engineering (AI & ML)</h3>
-                        <p class="university">Sharda University, Greater Noida</p>
-                        <p class="cgpa">CGPA: 8.6</p>
-                        <div class="subjects">
-                            <span class="subject-tag">DSA</span>
-                            <span class="subject-tag">OOP</span>
-                            <span class="subject-tag">DBMS</span>
-                            <span class="subject-tag">Computer Networks</span>
-                        </div>
-                    </div>
+            <div class="about-cards"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%;">
+                <div class="card glass tilt-card hover-glow"
+                    style="padding: 40px 30px; border-left: 4px solid var(--neon-purple); border-radius: 15px; text-align: left;">
+                    <i class="fas fa-brain card-icon neon-purple-text"
+                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">AI & ML Engineer</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Architecting predictive
+                        algorithms, leveraging OpenCV, and constructing deep neural networks to synthesize intelligent,
+                        data-driven applications.</p>
+                </div>
+
+                <div class="card glass tilt-card hover-glow"
+                    style="padding: 40px 30px; border-left: 4px solid var(--neon-cyan); border-radius: 15px; text-align: left;">
+                    <i class="fas fa-laptop-code card-icon neon-cyan-text"
+                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">Software Developer</h3>
+                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Deploying secure,
+                        high-traffic Android and Web ecosystems powered by modern JavaScript, Flask algorithms, and
+                        serverless Firebase architecture.</p>
+                </div>
+
+                <div class="card glass tilt-card hover-glow"
+                    style="padding: 40px 30px; border-left: 4px solid var(--neon-blue); border-radius: 15px; text-align: left;">
+                    <i class="fas fa-user-secret card-icon neon-blue-text"
+                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
+                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">Cybersecurity Focus
+                    </h3>
+                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Auditing system integrity
+                        utilizing Kali Linux toolkits, orchestrating automated vulnerability scanners, and writing
+                        bullet-proof authentication handlers.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <div class="skill-cubes">
-                        <div class="skill-cube" data-skill="Python">
-                            <div class="cube-face front">Python</div>
-                            <div class="cube-face back">Expert</div>
-                            <div class="cube-face right">90%</div>
-                            <div class="cube-face left">Advanced</div>
-                            <div class="cube-face top">🐍</div>
-                            <div class="cube-face bottom">2+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="Java">
-                            <div class="cube-face front">Java</div>
-                            <div class="cube-face back">Advanced</div>
-                            <div class="cube-face right">85%</div>
-                            <div class="cube-face left">OOP</div>
-                            <div class="cube-face top">☕</div>
-                            <div class="cube-face bottom">2+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="C">
-                            <div class="cube-face front">C</div>
-                            <div class="cube-face back">Good</div>
-                            <div class="cube-face right">80%</div>
-                            <div class="cube-face left">System</div>
-                            <div class="cube-face top">⚡</div>
-                            <div class="cube-face bottom">1+ Year</div>
-                        </div>
-                        <div class="skill-cube" data-skill="SQL">
-                            <div class="cube-face front">SQL</div>
-                            <div class="cube-face back">Good</div>
-                            <div class="cube-face right">75%</div>
-                            <div class="cube-face left">Database</div>
-                            <div class="cube-face top">🗄️</div>
-                            <div class="cube-face bottom">1+ Year</div>
+    <section id="skills" class="skills section">
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-container reveal" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+
+            <!-- Languages -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3><i class="fas fa-code neon-cyan-text"></i> Languages</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <div class="skill-name">Python <span>Advanced</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-cyan" data-width="90%"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <div class="skill-cubes">
-                        <div class="skill-cube" data-skill="HTML">
-                            <div class="cube-face front">HTML</div>
-                            <div class="cube-face back">Expert</div>
-                            <div class="cube-face right">95%</div>
-                            <div class="cube-face left">Semantic</div>
-                            <div class="cube-face top">🌐</div>
-                            <div class="cube-face bottom">3+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="CSS">
-                            <div class="cube-face front">CSS</div>
-                            <div class="cube-face back">Expert</div>
-                            <div class="cube-face right">90%</div>
-                            <div class="cube-face left">Modern</div>
-                            <div class="cube-face top">🎨</div>
-                            <div class="cube-face bottom">3+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="JavaScript">
-                            <div class="cube-face front">JavaScript</div>
-                            <div class="cube-face back">Advanced</div>
-                            <div class="cube-face right">85%</div>
-                            <div class="cube-face left">ES6+</div>
-                            <div class="cube-face top">⚡</div>
-                            <div class="cube-face bottom">2+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="React">
-                            <div class="cube-face front">React</div>
-                            <div class="cube-face back">Good</div>
-                            <div class="cube-face right">80%</div>
-                            <div class="cube-face left">Hooks</div>
-                            <div class="cube-face top">⚛️</div>
-                            <div class="cube-face bottom">1+ Year</div>
+                    <div class="skill">
+                        <div class="skill-name">Java <span>Advanced</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-cyan" data-width="88%"></div>
                         </div>
                     </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>AI/ML & Tools</h3>
-                    <div class="skill-cubes">
-                        <div class="skill-cube" data-skill="TensorFlow">
-                            <div class="cube-face front">TensorFlow</div>
-                            <div class="cube-face back">Learning</div>
-                            <div class="cube-face right">70%</div>
-                            <div class="cube-face left">Neural</div>
-                            <div class="cube-face top">🧠</div>
-                            <div class="cube-face bottom">6+ Months</div>
-                        </div>
-                        <div class="skill-cube" data-skill="Git">
-                            <div class="cube-face front">Git</div>
-                            <div class="cube-face back">Advanced</div>
-                            <div class="cube-face right">85%</div>
-                            <div class="cube-face left">Version</div>
-                            <div class="cube-face top">📝</div>
-                            <div class="cube-face bottom">2+ Years</div>
-                        </div>
-                        <div class="skill-cube" data-skill="Docker">
-                            <div class="cube-face front">Docker</div>
-                            <div class="cube-face back">Good</div>
-                            <div class="cube-face right">75%</div>
-                            <div class="cube-face left">Container</div>
-                            <div class="cube-face top">🐳</div>
-                            <div class="cube-face bottom">1+ Year</div>
-                        </div>
-                        <div class="skill-cube" data-skill="Kali Linux">
-                            <div class="cube-face front">Kali Linux</div>
-                            <div class="cube-face back">Good</div>
-                            <div class="cube-face right">80%</div>
-                            <div class="cube-face left">Security</div>
-                            <div class="cube-face top">🔒</div>
-                            <div class="cube-face bottom">1+ Year</div>
+                    <div class="skill">
+                        <div class="skill-name">C & SQL <span>Proficient</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-cyan" data-width="80%"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</body>
-</html>
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="experience-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <h3>Lead Developer</h3>
-                            <p class="company">Construction Management Android App</p>
-                            <p class="duration">2025 – Present</p>
+
+            <!-- Web Dev -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3><i class="fas fa-globe neon-blue-text"></i> Web Development</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <div class="skill-name">HTML/CSS/JS <span>Advanced</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-blue" data-width="95%"></div>
                         </div>
-                        <div class="flip-card-back">
-                            <h4>Key Responsibilities</h4>
-                            <ul>
-                                <li>Civil DPR & attendance management</li>
-                                <li>Role-based access control</li>
-                                <li>GPS-enabled photo attendance</li>
-                            </ul>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Android SDK</span>
-                                <span class="tech-tag">Firebase</span>
-                            </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">React & Tailwind <span>Proficient</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-blue" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Flask <span>Proficient</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-blue" data-width="80%"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- AI / ML -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3><i class="fas fa-robot neon-purple-text"></i> AI / ML</h3>
+                <div class="skill-bars">
+                    <div class="skill">
+                        <div class="skill-name">Pandas / NumPy <span>Advanced</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-purple" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Scikit-learn <span>Proficient</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-purple" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">TensorFlow <span>Basics</span></div>
+                        <div class="progress-bar">
+                            <div class="progress bg-neon-purple" data-width="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cybersecurity -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3><i class="fas fa-user-shield neon-cyan-text"></i> Cybersecurity</h3>
+                <div class="tech-stack mt-4" style="gap: 15px;">
+                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Kali
+                        Linux</span>
+                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Nmap</span>
+                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Wireshark</span>
+                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Burp
+                        Suite</span>
+                </div>
+            </div>
+
+            <!-- Core CS -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3><i class="fas fa-cogs neon-purple-text"></i> Core CS</h3>
+                <div class="tech-stack mt-4" style="gap: 12px;">
+                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">Data
+                        Structures</span>
+                    <span class="tech-pill bg-purple-pill"
+                        style="font-size: 0.95rem; padding: 8px 16px;">Algorithms</span>
+                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">OOP</span>
+                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">DBMS</span>
+                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">Computer
+                        Networks</span>
+                </div>
+            </div>
+
+            <!-- Tools & Platforms -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-tools neon-blue-text"></i> Tools & Platforms</h3>
+                <div class="tech-stack" style="gap: 10px;">
+                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
+                            class="fab fa-git-alt"></i> Git/GitHub</span>
+                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
+                            class="fab fa-docker"></i> Docker</span>
+                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
+                            class="fas fa-fire"></i> Firebase</span>
+                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
+                            class="fas fa-cloud"></i> Netlify</span>
+                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
+                            class="fas fa-code"></i> VS Code</span>
+                </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="skills-category glass glow-border hover-glow">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-users neon-pink-text" style="color: #ec4899;"></i>
+                    Soft Skills</h3>
+                <div class="tech-stack" style="gap: 10px;">
+                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Problem
+                        Solving</span>
+                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Team
+                        Collaboration</span>
+                    <span class="tech-pill bg-pink-pill"
+                        style="font-size: 0.95rem; padding: 8px 14px;">Adaptability</span>
+                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Analytical
+                        Thinking</span>
+                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Time
+                        Management</span>
+                    <span class="tech-pill bg-pink-pill"
+                        style="font-size: 0.95rem; padding: 8px 14px;">Communication</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <!-- Featured Project: Kuch Nhi -->
-                <div class="project-card glass-card featured-project">
-                    <div class="featured-badge">
-                        <i class="fas fa-star"></i>
-                        Featured Project
-                    </div>
-                    <div class="project-header">
-                        <h3>Kuch Nhi — AI Emotional Chat App</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        A full-stack chat web application that combines real-time messaging, AI-based emotion detection, and voice/video calling to create a more human and expressive communication experience.
-                    </p>
-                    
-                    <div class="project-features">
-                        <div class="feature-item">
-                            <i class="fas fa-lock"></i>
-                            <span>User Authentication</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-comment-dots"></i>
-                            <span>Real-time Chat</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-brain"></i>
-                            <span>AI Sentiment Analysis</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-palette"></i>
-                            <span>Mood-based UI</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-phone"></i>
-                            <span>Voice Calling</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-video"></i>
-                            <span>Video Calling</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-microphone"></i>
-                            <span>Voice Messages</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-bell"></i>
-                            <span>Notifications</span>
-                        </div>
-                    </div>
+    <section id="projects" class="projects section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid reveal">
 
-                    <div class="project-tech">
-                        <span class="tech-tag">PHP</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">WebRTC</span>
-                        <span class="tech-tag">Socket.IO</span>
-                        <span class="tech-tag">OpenAI API</span>
-                        <span class="tech-tag">JavaScript</span>
-                    </div>
+            <!-- Featured Project (Kuch Nhi) -->
+            <div class="project-card project-featured glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3>Kuch Nhi &mdash; AI Emotional Chat App</h3>
+                    <div class="featured-badge"><i class="fas fa-star"></i> Featured Project</div>
+                </div>
+                <p class="project-desc">A full-stack chat web application that combines real-time messaging, AI-based
+                    emotion detection, and voice/video calling to create a more human and expressive communication
+                    experience.</p>
 
-                    <div class="project-highlights">
-                        <div class="highlight-item">
-                            <h4>🚀 Challenge</h4>
-                            <p>Real-time communication without WebSocket support on free hosting</p>
-                            <p class="solution">✅ Separated Node.js signaling server on Render</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h4>🧠 Innovation</h4>
-                            <p>AI emotion detection accuracy</p>
-                            <p class="solution">✅ AI API integration + fallback keyword detection</p>
-                        </div>
-                        <div class="highlight-item">
-                            <h4>🎨 Design</h4>
-                            <p>UI responsiveness across devices</p>
-                            <p class="solution">✅ Mobile-first responsive design</p>
-                        </div>
-                    </div>
+                <div class="feature-list">
+                    <div class="feature-item"><i class="fas fa-lock text-neon-cyan"></i> User Authentication</div>
+                    <div class="feature-item"><i class="fas fa-comment-dots text-neon-cyan"></i> Real-time Chat</div>
+                    <div class="feature-item"><i class="fas fa-brain text-neon-cyan"></i> AI Sentiment Analysis</div>
+                    <div class="feature-item"><i class="fas fa-palette text-neon-cyan"></i> Mood-based UI</div>
+                    <div class="feature-item"><i class="fas fa-phone text-neon-cyan"></i> Voice Calling</div>
+                    <div class="feature-item"><i class="fas fa-video text-neon-cyan"></i> Video Calling</div>
+                    <div class="feature-item"><i class="fas fa-microphone text-neon-cyan"></i> Voice Messages</div>
+                    <div class="feature-item"><i class="fas fa-bell text-neon-cyan"></i> Notifications</div>
+                </div>
 
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/kuch-nhi-chat.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-blue-pill">PHP</span>
+                    <span class="tech-pill bg-blue-pill">Node.js</span>
+                    <span class="tech-pill bg-blue-pill">MySQL</span>
+                    <span class="tech-pill bg-blue-pill">WebRTC</span>
+                    <span class="tech-pill bg-blue-pill">Socket.IO</span>
+                    <span class="tech-pill bg-blue-pill">OpenAI API</span>
+                    <span class="tech-pill bg-blue-pill">JavaScript</span>
+                </div>
+
+                <div class="project-specs">
+                    <div class="spec-card">
+                        <h4><i class="fas fa-rocket neon-cyan-text"></i> Challenge</h4>
+                        <p>Real-time communication without WebSocket support on free hosting</p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-square"></i> Separated Node.js signaling server on Render</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h4><i class="fas fa-lightbulb neon-purple-text"></i> Innovation</h4>
+                        <p>AI emotion detection accuracy</p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-square"></i> AI API integration + fallback keyword detection</li>
+                        </ul>
+                    </div>
+                    <div class="spec-card">
+                        <h4><i class="fas fa-paint-brush neon-blue-text"></i> Design</h4>
+                        <p>UI responsiveness across devices</p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-square"></i> Mobile-first responsive design</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <h3>24-7 College Café Online Ordering System</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-coffee"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Complete online food ordering system with admin dashboard for college café management.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">MongoDB Atlas</span>
-                        <span class="tech-tag">JWT</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/24-7.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="https://cafe24-7.netlify.app/" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <h3>GaramDoodh – Daily Essentials Platform</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Secure e-commerce platform for daily essentials with OTP-based authentication and order management.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">OTP Auth</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/milk_project.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="https://garamdoodh.netlify.app/" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <h3>AI-Based Intrusion Detection System</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Machine learning-powered network security system for real-time anomaly detection and threat prevention.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">NumPy</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/Intrusion-Detection.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <h3>Web Security Scanner with Chatbot</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Automated vulnerability scanning tool with AI chatbot for security analysis and recommendations.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Nmap</span>
-                        <span class="tech-tag">AI Chatbot</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/WebSecurity_Scanner.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="https://websecurity-scanner.onrender.com/" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <h3>E-Learning Platform with AI Tutor</h3>
-                        <div class="project-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                    </div>
-                    <p class="project-description">
-                        Interactive learning platform with AI-powered personalized tutoring and adaptive quizzes.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Tailwind CSS</span>
-                        <span class="tech-tag">AI Integration</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Vaibhav-1430/e-learning-Website.git" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Code
-                        </a>
-                        <a href="https://padhloindia.netlify.app/" class="project-link">
-                            <i class="fas fa-external-link-alt"></i>
-                            Live Demo
-                        </a>
-                    </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                 </div>
             </div>
+
+            <!-- Project 2 (College Cafe) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">24/7 College Café Ordering System</h3>
+                    <i class="fas fa-hamburger project-icon-badge" style="color: #f59e0b;"></i>
+                </div>
+                <p class="project-desc">Complete full-stack food ordering system with a seamless user experience, secure
+                    authentication, and a comprehensive admin management dashboard.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-pink-pill">HTML/CSS</span>
+                    <span class="tech-pill bg-orange-pill">JS</span>
+                    <span class="tech-pill bg-purple-pill">MongoDB Atlas</span>
+                    <span class="tech-pill bg-cyan-pill">Netlify Functions</span>
+                    <span class="tech-pill bg-blue-pill">JWT</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 3 (GaramDoodh) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">GaramDoodh &mdash; Daily Essentials</h3>
+                    <i class="fas fa-shopping-basket project-icon-badge" style="color: #f59e0b;"></i>
+                </div>
+                <p class="project-desc">Secure hostel-based daily essentials commerce platform featuring bullet-proof
+                    OTP login and an admin order-management interface.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-pink-pill">HTML</span>
+                    <span class="tech-pill bg-blue-pill">CSS</span>
+                    <span class="tech-pill bg-orange-pill">JavaScript</span>
+                    <span class="tech-pill bg-gray-pill">OTP Auth</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 4 (Intrusion Detection) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">AI Intrusion Detection System</h3>
+                    <i class="fas fa-shield-virus project-icon-badge" style="color: #3b82f6;"></i>
+                </div>
+                <p class="project-desc">Machine learning-powered network security model geared to detect anomalous
+                    network traffic via intense feature engineering and hyperparameter tuning.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-orange-pill">Python</span>
+                    <span class="tech-pill bg-gray-pill">Scikit-learn</span>
+                    <span class="tech-pill bg-purple-pill">Pandas</span>
+                    <span class="tech-pill bg-cyan-pill">NumPy</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 5 (Web Sec Scanner) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">Web Security Scanner + Chatbot</h3>
+                    <i class="fas fa-search-dollar project-icon-badge" style="color: #ec4899;"></i>
+                </div>
+                <p class="project-desc">Automated vulnerability scanning tool augmented with an AI chatbot that analyzes
+                    security threats and offers remediation port-scanning protocols.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-orange-pill">Python</span>
+                    <span class="tech-pill bg-purple-pill">Flask</span>
+                    <span class="tech-pill bg-cyan-pill">Nmap</span>
+                    <span class="tech-pill bg-gray-pill">AI Chatbot</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 6 (Construction Builder App) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">Construction Management App</h3>
+                    <i class="fas fa-hard-hat project-icon-badge" style="color: #f59e0b;"></i>
+                </div>
+                <p class="project-desc">Android application streamlining civil DPR. Leverages GPS-based photo
+                    verification, real-time attendance tracking, and deep role-based DB structures.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-blue-pill">Java</span>
+                    <span class="tech-pill bg-orange-pill">Firebase</span>
+                    <span class="tech-pill bg-cyan-pill">Android SDK</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
+            <!-- Project 7 (PADH LO) -->
+            <div class="project-card glass tilt-card glow-border hover-glow">
+                <div class="project-header">
+                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">E-Learning Platform with AI Tutor</h3>
+                    <i class="fas fa-graduation-cap project-icon-badge" style="color: #f59e0b;"></i>
+                </div>
+                <p class="project-desc">Interactive learning platform with AI-powered personalized tutoring and adaptive
+                    quizzes.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill bg-pink-pill">Flask</span>
+                    <span class="tech-pill bg-orange-pill">JavaScript</span>
+                    <span class="tech-pill bg-purple-pill">Tailwind CSS</span>
+                    <span class="tech-pill bg-orange-pill">AI Integration</span>
+                </div>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> Code</a>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2 class="section-title">Certifications & Achievements</h2>
-            <div class="certifications-grid">
-                <div class="cert-badge">
-                    <div class="badge-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h4>Machine Learning</h4>
-                    <p>IntrnForte</p>
-                </div>
-                <div class="cert-badge">
-                    <div class="badge-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h4>Ethical Hacking</h4>
-                    <p>Udemy</p>
-                </div>
-                <div class="cert-badge">
-                    <div class="badge-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h4>Adobe India Hackathon</h4>
-                    <p>Participant</p>
-                </div>
-                <div class="cert-badge">
-                    <div class="badge-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h4>UX Hackathon</h4>
-                    <p>IIT Delhi</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Achievements & Certifications Section -->
+    <section id="achievements" class="about section">
+        <h2 class="section-title">Achievements & Certifications</h2>
+        <div class="skills-container reveal"
+            style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
 
-    <!-- Soft Skills Section -->
-    <section id="soft-skills" class="soft-skills">
-        <div class="container">
-            <h2 class="section-title">Soft Skills</h2>
-            <div class="soft-skills-grid">
-                <div class="soft-skill-item">
-                    <div class="skill-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h4>Problem Solving</h4>
-                </div>
-                <div class="soft-skill-item">
-                    <div class="skill-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h4>Leadership</h4>
-                </div>
-                <div class="soft-skill-item">
-                    <div class="skill-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h4>Team Collaboration</h4>
-                </div>
-                <div class="soft-skill-item">
-                    <div class="skill-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h4>Communication</h4>
-                </div>
+            <div class="skills-category glass glow-border hover-glow">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-trophy neon-cyan-text"></i> Competitions</h3>
+                <ul style="color: var(--text-muted); font-size: 1.05rem; margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Participant:</strong> Adobe India Hackathon <span style="color: var(--neon-cyan);"><i
+                                class="fas fa-star ml-2"></i></span></li>
+                    <li><strong>Participant:</strong> IIT Delhi UX Hackathon <span style="color: var(--neon-cyan);"><i
+                                class="fas fa-star ml-2"></i></span></li>
+                    <li class="mt-2 text-main" style="color: var(--text-main);">Built <strong>5+ real-world
+                            implementations</strong> spanning AI, Web, and Cybersecurity.</li>
+                </ul>
             </div>
+
+            <div class="skills-category glass glow-border hover-glow">
+                <h3 style="margin-bottom: 20px;"><i class="fas fa-certificate neon-purple-text"></i> Certifications</h3>
+                <ul style="color: var(--text-muted); font-size: 1.05rem; margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Machine Learning</strong> &mdash; InternForte</li>
+                    <li><strong>Ethical Hacking</strong> &mdash; Udemy</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <a href="mailto:yadavvaibhav688@gmail.com" class="contact-link">yadavvaibhav688@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <a href="tel:+916387951651" class="contact-link">+91 6387951651</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <a href="https://linkedin.com/in/vaibhav1104" target="_blank" class="contact-link">vaibhav1104</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/Vaibhav-1430" target="_blank" class="contact-link">Vaibhav-1430</a>
-                        </div>
-                    </div>
+    <section id="contact" class="contact section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container reveal">
+            <div class="contact-info glass glow-border">
+                <h3>Let's talk 💬</h3>
+                <p>I'm continuously searching for impactful engineering opportunities. Reach out if you want to
+                    collaborate on creating intelligent, scalable applications!</p>
+
+                <div style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 20px;">
+                    <p class="mb-2"><i class="fas fa-phone-alt text-neon-cyan" style="width: 30px;"></i> +91 6387951651
+                    </p>
+                    <p><i class="fas fa-envelope text-neon-purple" style="width: 30px;"></i> yadavvaibhav688@gmail.com
+                    </p>
                 </div>
-                <div class="contact-form-container">
-                    <form class="contact-form glass-card">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
+
+                <div class="social-links mt-4">
+                    <a href="mailto:yadavvaibhav688@gmail.com" class="social-icon hover-glow" aria-label="Email"><i
+                            class="fas fa-envelope"></i></a>
+                    <a href="https://github.com" target="_blank" class="social-icon hover-glow" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="social-icon hover-glow"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+            <form class="contact-form glass glow-border" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required placeholder="Your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-full mt-2" style="justify-content: center;">Send Message
+                    <i class="fas fa-paper-plane"></i></button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Vaibhav Kumar Yadav. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://github.com/Vaibhav-1430" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/vaibhav1104" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:yadavvaibhav688@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <footer class="footer glass">
+        <p>&copy; 2026 Designed & Built by Vaibhav Kumar Yadav using Pure HTML/CSS/JS</p>
     </footer>
-
-    <!-- Resume Preview Modal -->
-    <div id="resume-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Resume</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body">
-                <div class="resume-preview-container">
-                    <iframe id="resume-iframe" src="" frameborder="0"></iframe>
-                </div>
-                <div class="modal-actions">
-                    <button id="close-modal-btn" class="btn btn-primary">
-                        <i class="fas fa-times"></i>
-                        Close
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
