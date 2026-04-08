@@ -287,7 +287,7 @@ function getChatResponse(message) {
             : 'Vaibhav has strong implementation-level technical skills.';
         return formatChatResponse(core, [
             'Frontend: React, JavaScript, HTML/CSS.',
-            'Mobile and backend: Flutter, Firebase, Flask.',
+            'Mobile and backend: Dart, Flutter, Firebase, Flask.',
             'AI/ML: Pandas, NumPy, Scikit-learn, TensorFlow.',
             'Also strong in problem solving and system-driven execution.'
         ]);
@@ -436,7 +436,7 @@ termOverlay.addEventListener('click', e => { if(e.target === termOverlay) closeT
 const termCmds = {
     help: `Available commands:\n  <span class="t-cmd">about</span>      - About Vaibhav\n  <span class="t-cmd">skills</span>     - Technical skills\n  <span class="t-cmd">projects</span>   - List projects\n  <span class="t-cmd">contact</span>    - Contact info\n  <span class="t-cmd">experience</span> - Achievements\n  <span class="t-cmd">clear</span>      - Clear terminal\n  <span class="t-cmd">exit</span>       - Close terminal`,
     about: `<span class="t-accent">Vaibhav Kumar Yadav</span>\n<span class="t-success">B.Tech CSE (AI & ML)</span>\nFull-Stack Developer | AI Engineer | Cybersecurity\n\nPassionate about building intelligent, secure applications.\n500+ DSA problems solved. Hackathon participant at Adobe & IIT Delhi.`,
-    skills: `<span class="t-accent">Languages:</span> Python, Java, C, SQL, JavaScript\n<span class="t-accent">Web:</span> HTML/CSS/JS, React, Tailwind, Flask\n<span class="t-accent">AI/ML:</span> Pandas, NumPy, Scikit-learn, TensorFlow\n<span class="t-accent">Security:</span> Kali Linux, Nmap, Wireshark, Burp Suite\n<span class="t-accent">Tools:</span> Git, Docker, Firebase, Netlify`,
+    skills: `<span class="t-accent">Languages:</span> Python, Java, Dart, C, SQL, JavaScript\n<span class="t-accent">Web & App:</span> HTML/CSS/JS, React, Tailwind, Flutter, Flask\n<span class="t-accent">AI/ML:</span> Pandas, NumPy, Scikit-learn, TensorFlow\n<span class="t-accent">Security:</span> Kali Linux, Nmap, Wireshark, Burp Suite\n<span class="t-accent">Tools:</span> Git, Docker, Firebase, Netlify`,
     projects: `<span class="t-success">1.</span> Kuch Nhi — AI Emotional Chat App (Featured)\n<span class="t-success">2.</span> 24/7 College Café — Food Ordering System\n<span class="t-success">3.</span> GaramDoodh — Daily Essentials Platform\n<span class="t-success">4.</span> AI Intrusion Detection System\n<span class="t-success">5.</span> Web Security Scanner + AI Chatbot\n<span class="t-success">6.</span> Construction Management App\n<span class="t-success">7.</span> E-Learning Platform with AI Tutor`,
     contact: `<span class="t-accent">Email:</span> yadavvaibhav688@gmail.com\n<span class="t-accent">Phone:</span> +91 6387951651\n<span class="t-accent">GitHub:</span> github.com/Vaibhav-1430\n<span class="t-accent">LinkedIn:</span> linkedin.com/in/vaibhav1104`,
     experience: `<span class="t-accent">Hackathons:</span>\n  <span class="t-warn">★</span> Adobe India Hackathon\n  <span class="t-warn">★</span> IIT Delhi UX Hackathon\n  <span class="t-warn">★</span> India Innovates 2026 Hackathon\n\n<span class="t-accent">Certifications:</span>\n  • Machine Learning — InternForte\n  • Ethical Hacking — Udemy\n  • Participation Certificate — India Innovates 2026`,
