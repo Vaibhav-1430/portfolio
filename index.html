@@ -4,556 +4,679 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaibhav Kumar Yadav | Portfolio</title>
-    <!-- Modern Fonts -->
+    <title>Vaibhav Kumar Yadav | Software Developer & AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Vaibhav Kumar Yadav — B.Tech CSE (AI & ML) student, full-stack developer, AI engineer, and cybersecurity enthusiast.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
     <link rel="stylesheet" href="styles.css">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- Custom Cursor Glow -->
-    <div class="cursor-glow"></div>
-
-    <!-- Background Particles Canvas -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- Navigation -->
-    <nav class="navbar glass">
-        <div class="logo">
-            <span class="neon-text">&lt;</span><span class="logo-text">VAIBHAV</span><span
-                class="neon-text">/&gt;</span>
+    <!-- ═══════════════════ PRELOADER ═══════════════════ -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">
+                <span class="pl-bracket">&lt;</span><span class="pl-name">VKY</span><span class="pl-bracket">/&gt;</span>
+            </div>
+            <div class="preloader-bar-track">
+                <div class="preloader-bar-fill" id="preloader-fill"></div>
+            </div>
+            <div class="preloader-text">
+                <span id="preloader-status">Initializing systems...</span>
+                <span id="preloader-percent">0%</span>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- ═══════════════════ CUSTOM CURSOR ═══════════════════ -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- ═══════════════════ PARTICLE CANVAS ═══════════════════ -->
+    <canvas id="hero-canvas"></canvas>
+
+    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">
+                <span class="logo-br">&lt;</span><span class="logo-nm">VAIBHAV</span><span class="logo-br">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#demo" class="nav-link" data-section="demo">AI Demo</a></li>
+                <li><a href="#achievements" class="nav-link" data-section="achievements">Achievements</a></li>
+                <li><a href="#hire" class="nav-link" data-section="hire">Why Hire Me</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content glass glow-border">
-            <p class="subtitle neon-text uppercase tracking-widest">Building intelligent, secure, and scalable solutions
+    <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+    <section id="home" class="hero-section">
+        <div class="hero-grid-overlay"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge" data-reveal>
+                <span class="badge-dot"></span>
+                <span>Available for opportunities</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line" data-reveal>Hi, I build</span>
+                <span class="hero-line hero-name" data-reveal>Intelligent Systems</span>
+                <span class="hero-line hero-role" data-reveal>
+                    <span class="typing-wrapper">
+                        <span class="typed-text" id="typed-text"></span>
+                        <span class="type-cursor">|</span>
+                    </span>
+                </span>
+            </h1>
+            <p class="hero-description" data-reveal>
+                B.Tech CSE (AI & ML) · Full-Stack Developer · AI Engineer · Cybersecurity Explorer
             </p>
-            <h1 class="title" style="font-size: 3.5rem;">Vaibhav Kumar Yadav <br> <span class="typing-container"
-                    style="font-size: 2.2rem; margin-top: 15px;"><span class="typed-text"></span><span
-                        class="cursor">|</span></span></h1>
-            <p class="description">B.Tech CSE (AI & ML) student with hands-on experience in full-stack web, Android, and
-                AI-based applications. Passionate about solving real-world problems with secure software.</p>
-            <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
-                <a href="Resume_inter.pdf" target="_blank" class="btn btn-secondary glass hover-glow">View Resume <i
-                        class="fas fa-eye"></i></a>
+            <div class="hero-cta" data-reveal>
+                <a href="#projects" class="btn-primary magnetic">
+                    <span>View Projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <div class="btn-shine"></div>
+                </a>
+                <a href="Resume_inter.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline magnetic">
+                    <span>View Resume</span>
+                    <i class="fas fa-eye"></i>
+                </a>
             </div>
-            <div class="social-links mt-4" style="justify-content: center; margin-top: 30px;">
-                <a href="https://github.com/Vaibhav-1430" target="_blank" class="social-icon hover-glow" aria-label="GitHub"
-                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/vaibhav1104" target="_blank" class="social-icon hover-glow" aria-label="LinkedIn"
-                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:yadavvaibhav688@gmail.com" class="social-icon hover-glow" aria-label="Email"
-                    style="width: 45px; height: 45px; font-size: 1.2rem;"><i class="fas fa-envelope"></i></a>
+            <div class="hero-socials" data-reveal>
+                <a href="https://github.com/Vaibhav-1430" target="_blank" rel="noopener noreferrer" class="social-link magnetic" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/vaibhav1104" target="_blank" rel="noopener noreferrer" class="social-link magnetic" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:yadavvaibhav688@gmail.com" class="social-link magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+
+        <a href="#stats" class="scroll-indicator" aria-label="Scroll down">
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            <span>Scroll</span>
+        </a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-container reveal"
-            style="display: flex; flex-direction: column; gap: 60px; align-items: center; width: 100%;">
-            <div class="about-text"
-                style="display: flex; flex-direction: column; justify-content: center; text-align: center; max-width: 900px;">
-                <h3 class="neon-text" style="font-size: 2rem; margin-bottom: 25px; letter-spacing: 1px;">Hello, I'm
-                    Vaibhav</h3>
-                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 20px;">
-                    A highly driven <span class="neon-purple-text font-bold" style="color: var(--text-main);">B.Tech CSE
-                        (AI & ML)</span> student with hands-on expertise in formulating full-stack web architectures,
-                    scalable Android ecosystems, and intelligent AI models.
-                </p>
-                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 35px;">
-                    I possess a rigorous command over Data Structures, Cybersecurity, and intricate System Design. My
-                    absolute passion lies in translating complex real-world problems into streamlined, automated, and
-                    mathematically robust software solutions.
-                </p>
-
-                <h4
-                    style="margin-bottom: 20px; color: var(--neon-cyan); letter-spacing: 2px; font-size: 1.1rem; text-transform: uppercase;">
-                    Core Competencies</h4>
-                <div class="skill-tags" style="justify-content: center; gap: 15px;">
-                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
-                            class="fas fa-sitemap mr-2"></i> Problem Solving (DSA)</span>
-                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
-                            class="fas fa-shield-alt mr-2"></i> Cybersecurity</span>
-                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
-                            class="fas fa-network-wired mr-2"></i> System Design</span>
-                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
-                            class="fas fa-brain mr-2"></i> AI & ML</span>
-                    <span class="skill-tag" style="padding: 10px 20px; font-size: 1rem;"><i
-                            class="fas fa-layer-group mr-2"></i> Full-Stack Dev</span>
-                </div>
+    <!-- ═══════════════════ STATS DASHBOARD ═══════════════════ -->
+    <section id="stats" class="section stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-blue"><i class="fas fa-code-branch"></i></div>
+                <div class="stat-number" data-count="8">0</div>
+                <div class="stat-label">Projects Built</div>
             </div>
-
-            <div class="about-cards"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%;">
-                <div class="card glass tilt-card hover-glow"
-                    style="padding: 40px 30px; border-left: 4px solid var(--neon-purple); border-radius: 15px; text-align: left;">
-                    <i class="fas fa-brain card-icon neon-purple-text"
-                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">AI & ML Engineer</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Architecting predictive
-                        algorithms, leveraging OpenCV, and constructing deep neural networks to synthesize intelligent,
-                        data-driven applications.</p>
-                </div>
-
-                <div class="card glass tilt-card hover-glow"
-                    style="padding: 40px 30px; border-left: 4px solid var(--neon-cyan); border-radius: 15px; text-align: left;">
-                    <i class="fas fa-laptop-code card-icon neon-cyan-text"
-                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">Software Developer</h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Deploying secure,
-                        high-traffic Android and Web ecosystems powered by modern JavaScript, Flask algorithms, and
-                        serverless Firebase architecture.</p>
-                </div>
-
-                <div class="card glass tilt-card hover-glow"
-                    style="padding: 40px 30px; border-left: 4px solid var(--neon-blue); border-radius: 15px; text-align: left;">
-                    <i class="fas fa-user-secret card-icon neon-blue-text"
-                        style="font-size: 2.8rem; margin-bottom: 20px;"></i>
-                    <h3 style="font-size: 1.4rem; margin-bottom: 12px; color: var(--text-main);">Cybersecurity Focus
-                    </h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 1.05rem;">Auditing system integrity
-                        utilizing Kali Linux toolkits, orchestrating automated vulnerability scanners, and writing
-                        bullet-proof authentication handlers.</p>
-                </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-purple"><i class="fas fa-laptop-code"></i></div>
+                <div class="stat-number" data-count="16">0</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-cyan"><i class="fas fa-brain"></i></div>
+                <div class="stat-number" data-count="80">0</div>
+                <div class="stat-label">DSA Problems Solved</div>
+                <div class="stat-plus">+</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-pink"><i class="fas fa-trophy"></i></div>
+                <div class="stat-number" data-count="5">0</div>
+                <div class="stat-label">Hackathons</div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-        <h2 class="section-title">Technical Arsenal</h2>
-        <div class="skills-container reveal" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+    <!-- ═══════════════════ ABOUT SECTION ═══════════════════ -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;about&gt;</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-line"></div>
+        </div>
 
-            <!-- Languages -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3><i class="fas fa-code neon-cyan-text"></i> Languages</h3>
+        <div class="about-grid">
+            <div class="about-text-block">
+                <h3 class="about-greeting">Hello, I'm <span class="gradient-text">Vaibhav</span></h3>
+                <p class="about-p">A highly driven <strong>B.Tech CSE (AI & ML)</strong> student with hands-on expertise in formulating full-stack web architectures, scalable Android ecosystems, and intelligent AI models.</p>
+                <p class="about-p">I possess rigorous command over Data Structures, Cybersecurity, and System Design. My passion lies in translating complex real-world problems into streamlined, automated software solutions.</p>
+                <div class="competency-tags">
+                    <span class="competency-tag"><i class="fas fa-sitemap"></i> Problem Solving (DSA)</span>
+                    <span class="competency-tag"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+                    <span class="competency-tag"><i class="fas fa-network-wired"></i> System Design</span>
+                    <span class="competency-tag" data-mode-tag="ai"><i class="fas fa-brain"></i> AI & ML</span>
+                    <span class="competency-tag" data-mode-tag="frontend"><i class="fas fa-layer-group"></i> Full-Stack Dev</span>
+                </div>
+            </div>
+
+            <div class="about-cards-grid">
+                <div class="about-card" data-tilt data-mode-card="ai">
+                    <div class="card-glow"></div>
+                    <div class="card-icon icon-purple"><i class="fas fa-brain"></i></div>
+                    <h4>AI & ML Engineer</h4>
+                    <p>Architecting predictive algorithms, leveraging OpenCV, and constructing deep neural networks for intelligent, data-driven applications.</p>
+                </div>
+                <div class="about-card" data-tilt data-mode-card="frontend">
+                    <div class="card-glow"></div>
+                    <div class="card-icon icon-cyan"><i class="fas fa-laptop-code"></i></div>
+                    <h4>Software Developer</h4>
+                    <p>Deploying secure, high-traffic Android and Web ecosystems powered by modern JavaScript, Flask, and serverless Firebase architecture.</p>
+                </div>
+                <div class="about-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="card-icon icon-blue"><i class="fas fa-user-secret"></i></div>
+                    <h4>Cybersecurity Focus</h4>
+                    <p>Auditing system integrity with Kali Linux, orchestrating vulnerability scanners, and writing bullet-proof authentication handlers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ SKILLS SECTION ═══════════════════ -->
+    <section id="skills" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;skills&gt;</span>
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card" data-tilt data-mode-card="all">
+                <div class="skill-card-header">
+                    <i class="fas fa-code skill-icon icon-cyan"></i>
+                    <h3>Languages</h3>
+                </div>
                 <div class="skill-bars">
-                    <div class="skill">
-                        <div class="skill-name">Python <span>Advanced</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-cyan" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">Java <span>Advanced</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-cyan" data-width="88%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">C & SQL <span>Proficient</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-cyan" data-width="80%"></div>
-                        </div>
-                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>Python</span><span class="skill-level">Advanced</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-cyan" data-width="90"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>Java</span><span class="skill-level">Advanced</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-cyan" data-width="88"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>C & SQL</span><span class="skill-level">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-cyan" data-width="80"></div></div></div>
                 </div>
             </div>
 
-            <!-- Web Dev -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3><i class="fas fa-globe neon-blue-text"></i> Web Development</h3>
+            <div class="skill-card" data-tilt data-mode-card="frontend">
+                <div class="skill-card-header">
+                    <i class="fas fa-globe skill-icon icon-blue"></i>
+                    <h3>Web Development</h3>
+                </div>
                 <div class="skill-bars">
-                    <div class="skill">
-                        <div class="skill-name">HTML/CSS/JS <span>Advanced</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-blue" data-width="95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">React & Tailwind <span>Proficient</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-blue" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">Flask <span>Proficient</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-blue" data-width="80%"></div>
-                        </div>
-                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>HTML/CSS/JS</span><span class="skill-level">Advanced</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-blue" data-width="95"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>React & Tailwind</span><span class="skill-level">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-blue" data-width="85"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>Flask</span><span class="skill-level">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-blue" data-width="80"></div></div></div>
                 </div>
             </div>
 
-            <!-- AI / ML -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3><i class="fas fa-robot neon-purple-text"></i> AI / ML</h3>
+            <div class="skill-card" data-tilt data-mode-card="ai">
+                <div class="skill-card-header">
+                    <i class="fas fa-robot skill-icon icon-purple"></i>
+                    <h3>AI / ML</h3>
+                </div>
                 <div class="skill-bars">
-                    <div class="skill">
-                        <div class="skill-name">Pandas / NumPy <span>Advanced</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-purple" data-width="90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">Scikit-learn <span>Proficient</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-purple" data-width="85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill">
-                        <div class="skill-name">TensorFlow <span>Basics</span></div>
-                        <div class="progress-bar">
-                            <div class="progress bg-neon-purple" data-width="60%"></div>
-                        </div>
-                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>Pandas / NumPy</span><span class="skill-level">Advanced</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-purple" data-width="90"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>Scikit-learn</span><span class="skill-level">Proficient</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-purple" data-width="85"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span>TensorFlow</span><span class="skill-level">Basics</span></div><div class="skill-bar-track"><div class="skill-bar-fill fill-purple" data-width="60"></div></div></div>
                 </div>
             </div>
 
-            <!-- Cybersecurity -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3><i class="fas fa-user-shield neon-cyan-text"></i> Cybersecurity</h3>
-                <div class="tech-stack mt-4" style="gap: 15px;">
-                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Kali
-                        Linux</span>
-                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Nmap</span>
-                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Wireshark</span>
-                    <span class="tech-pill bg-gray-pill" style="font-size: 0.95rem; padding: 8px 16px;">Burp
-                        Suite</span>
-                </div>
+            <div class="skill-card" data-tilt>
+                <div class="skill-card-header"><i class="fas fa-user-shield skill-icon icon-cyan"></i><h3>Cybersecurity</h3></div>
+                <div class="skill-pills"><span class="pill pill-gray">Kali Linux</span><span class="pill pill-gray">Nmap</span><span class="pill pill-gray">Wireshark</span><span class="pill pill-gray">Burp Suite</span></div>
             </div>
 
-            <!-- Core CS -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3><i class="fas fa-cogs neon-purple-text"></i> Core CS</h3>
-                <div class="tech-stack mt-4" style="gap: 12px;">
-                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">Data
-                        Structures</span>
-                    <span class="tech-pill bg-purple-pill"
-                        style="font-size: 0.95rem; padding: 8px 16px;">Algorithms</span>
-                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">OOP</span>
-                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">DBMS</span>
-                    <span class="tech-pill bg-purple-pill" style="font-size: 0.95rem; padding: 8px 16px;">Computer
-                        Networks</span>
-                </div>
+            <div class="skill-card" data-tilt>
+                <div class="skill-card-header"><i class="fas fa-cogs skill-icon icon-purple"></i><h3>Core CS</h3></div>
+                <div class="skill-pills"><span class="pill pill-purple">Data Structures</span><span class="pill pill-purple">Algorithms</span><span class="pill pill-purple">OOP</span><span class="pill pill-purple">DBMS</span><span class="pill pill-purple">Networks</span></div>
             </div>
 
-            <!-- Tools & Platforms -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3 style="margin-bottom: 20px;"><i class="fas fa-tools neon-blue-text"></i> Tools & Platforms</h3>
-                <div class="tech-stack" style="gap: 10px;">
-                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
-                            class="fab fa-git-alt"></i> Git/GitHub</span>
-                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
-                            class="fab fa-docker"></i> Docker</span>
-                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
-                            class="fas fa-fire"></i> Firebase</span>
-                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
-                            class="fas fa-cloud"></i> Netlify</span>
-                    <span class="tech-pill bg-blue-pill" style="font-size: 0.95rem; padding: 8px 14px;"><i
-                            class="fas fa-code"></i> VS Code</span>
-                </div>
+            <div class="skill-card" data-tilt>
+                <div class="skill-card-header"><i class="fas fa-tools skill-icon icon-blue"></i><h3>Tools & Platforms</h3></div>
+                <div class="skill-pills"><span class="pill pill-blue"><i class="fab fa-git-alt"></i> Git</span><span class="pill pill-blue"><i class="fab fa-docker"></i> Docker</span><span class="pill pill-blue"><i class="fas fa-fire"></i> Firebase</span><span class="pill pill-blue"><i class="fas fa-cloud"></i> Netlify</span><span class="pill pill-blue"><i class="fas fa-code"></i> VS Code</span></div>
             </div>
-
-            <!-- Soft Skills -->
-            <div class="skills-category glass glow-border hover-glow">
-                <h3 style="margin-bottom: 20px;"><i class="fas fa-users neon-pink-text" style="color: #ec4899;"></i>
-                    Soft Skills</h3>
-                <div class="tech-stack" style="gap: 10px;">
-                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Problem
-                        Solving</span>
-                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Team
-                        Collaboration</span>
-                    <span class="tech-pill bg-pink-pill"
-                        style="font-size: 0.95rem; padding: 8px 14px;">Adaptability</span>
-                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Analytical
-                        Thinking</span>
-                    <span class="tech-pill bg-pink-pill" style="font-size: 0.95rem; padding: 8px 14px;">Time
-                        Management</span>
-                    <span class="tech-pill bg-pink-pill"
-                        style="font-size: 0.95rem; padding: 8px 14px;">Communication</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects section">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid reveal">
+    <!-- ═══════════════════ PROJECTS (CASE STUDIES) ═══════════════════ -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;projects&gt;</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-line"></div>
+        </div>
 
-            <!-- Featured Project (Kuch Nhi) -->
-            <div class="project-card project-featured glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3>Kuch Nhi &mdash; AI Emotional Chat App</h3>
-                    <div class="featured-badge"><i class="fas fa-star"></i> Featured Project</div>
-                </div>
-                <p class="project-desc">A full-stack chat web application that combines real-time messaging, AI-based
-                    emotion detection, and voice/video calling to create a more human and expressive communication
-                    experience.</p>
-
-                <div class="feature-list">
-                    <div class="feature-item"><i class="fas fa-lock text-neon-cyan"></i> User Authentication</div>
-                    <div class="feature-item"><i class="fas fa-comment-dots text-neon-cyan"></i> Real-time Chat</div>
-                    <div class="feature-item"><i class="fas fa-brain text-neon-cyan"></i> AI Sentiment Analysis</div>
-                    <div class="feature-item"><i class="fas fa-palette text-neon-cyan"></i> Mood-based UI</div>
-                    <div class="feature-item"><i class="fas fa-phone text-neon-cyan"></i> Voice Calling</div>
-                    <div class="feature-item"><i class="fas fa-video text-neon-cyan"></i> Video Calling</div>
-                    <div class="feature-item"><i class="fas fa-microphone text-neon-cyan"></i> Voice Messages</div>
-                    <div class="feature-item"><i class="fas fa-bell text-neon-cyan"></i> Notifications</div>
-                </div>
-
-                <div class="tech-stack">
-                    <span class="tech-pill bg-blue-pill">PHP</span>
-                    <span class="tech-pill bg-blue-pill">Node.js</span>
-                    <span class="tech-pill bg-blue-pill">MySQL</span>
-                    <span class="tech-pill bg-blue-pill">WebRTC</span>
-                    <span class="tech-pill bg-blue-pill">Socket.IO</span>
-                    <span class="tech-pill bg-blue-pill">OpenAI API</span>
-                    <span class="tech-pill bg-blue-pill">JavaScript</span>
-                </div>
-
-                <div class="project-specs">
-                    <div class="spec-card">
-                        <h4><i class="fas fa-rocket neon-cyan-text"></i> Challenge</h4>
-                        <p>Real-time communication without WebSocket support on free hosting</p>
-                        <ul class="spec-list">
-                            <li><i class="fas fa-check-square"></i> Separated Node.js signaling server on Render</li>
-                        </ul>
+        <div class="projects-grid">
+            <!-- Featured: SafePay -->
+            <div class="project-card project-featured" data-tilt data-mode-card="all">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3>SafePay — Fintech Payment App</h3>
+                        <div class="featured-tag flagship"><i class="fas fa-crown"></i> Flagship Project</div>
                     </div>
-                    <div class="spec-card">
-                        <h4><i class="fas fa-lightbulb neon-purple-text"></i> Innovation</h4>
-                        <p>AI emotion detection accuracy</p>
-                        <ul class="spec-list">
-                            <li><i class="fas fa-check-square"></i> AI API integration + fallback keyword detection</li>
-                        </ul>
+                    <p class="project-desc">A production-grade digital wallet application offering secure peer-to-peer payments, real-time sync, and fraud detection.</p>
+                    <div class="feature-grid">
+                        <div class="feature-chip"><i class="fas fa-university"></i> Banking</div>
+                        <div class="feature-chip"><i class="fas fa-bolt"></i> Instant Transfer</div>
+                        <div class="feature-chip"><i class="fas fa-shield-alt"></i> Fraud Analytics</div>
+                        <div class="feature-chip"><i class="fas fa-mobile-alt"></i> Cross-platform</div>
                     </div>
-                    <div class="spec-card">
-                        <h4><i class="fas fa-paint-brush neon-blue-text"></i> Design</h4>
-                        <p>UI responsiveness across devices</p>
-                        <ul class="spec-list">
-                            <li><i class="fas fa-check-square"></i> Mobile-first responsive design</li>
-                        </ul>
+                    <div class="tech-pills"><span class="pill pill-blue">Flutter</span><span class="pill pill-orange">Firebase</span><span class="pill pill-blue">Dart</span><span class="pill pill-purple">Cloud Functions</span></div>
+
+                    <!-- Expandable Case Study -->
+                    <button class="case-study-toggle" onclick="toggleCaseStudy(this)"><i class="fas fa-chevron-down"></i> View Case Study</button>
+                    <div class="case-study-panel">
+                        <div class="case-study-row">
+                            <div class="cs-block"><h5><i class="fas fa-exclamation-triangle icon-cyan"></i> Problem</h5><p>Cross-device payment state could desync during unstable networks, creating duplicate or delayed transaction visibility.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-lightbulb icon-purple"></i> Solution</h5><p>Built an event-driven Firebase flow with real-time listeners, Cloud Functions validation, and idempotent transaction handling.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-chart-line icon-blue"></i> Result</h5><p>Lightning-fast UI updates during payments and a robust push notification delivery system to ensure sender and receiver are synced.</p></div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/kuch-nhi-chat.git"><i class="fab fa-github"></i> Code</a>
-                    <!--a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a -->
+                    <a href="https://github.com/Vaibhav-1430" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Source Code</a>
+                    <a href="#demo" class="proj-link live"><i class="fas fa-bolt"></i> AI Fraud Demo</a>
                 </div>
             </div>
 
-            <!-- Project 2 (College Cafe) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">24/7 College Café Ordering System</h3>
-                    <i class="fas fa-hamburger project-icon-badge" style="color: #f59e0b;"></i>
-                </div>
-                <p class="project-desc">Complete full-stack food ordering system with a seamless user experience, secure
-                    authentication, and a comprehensive admin management dashboard.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-pink-pill">HTML/CSS</span>
-                    <span class="tech-pill bg-orange-pill">JS</span>
-                    <span class="tech-pill bg-purple-pill">MongoDB Atlas</span>
-                    <span class="tech-pill bg-cyan-pill">Netlify Functions</span>
-                    <span class="tech-pill bg-blue-pill">JWT</span>
+            <!-- Featured: Kuch Nhi -->
+            <div class="project-card project-featured" data-tilt data-mode-card="all">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header">
+                        <h3>Kuch Nhi — AI Emotional Chat App</h3>
+                        <div class="featured-tag"><i class="fas fa-star"></i> Featured</div>
+                    </div>
+                    <p class="project-desc">Full-stack chat app combining real-time messaging, AI-based emotion detection, and voice/video calling.</p>
+                    <div class="feature-grid">
+                        <div class="feature-chip"><i class="fas fa-lock"></i> Auth</div>
+                        <div class="feature-chip"><i class="fas fa-comment-dots"></i> Real-time Chat</div>
+                        <div class="feature-chip"><i class="fas fa-brain"></i> AI Sentiment</div>
+                        <div class="feature-chip"><i class="fas fa-palette"></i> Mood UI</div>
+                        <div class="feature-chip"><i class="fas fa-phone"></i> Voice Call</div>
+                        <div class="feature-chip"><i class="fas fa-video"></i> Video Call</div>
+                    </div>
+                    <div class="tech-pills"><span class="pill pill-blue">PHP</span><span class="pill pill-blue">Node.js</span><span class="pill pill-blue">MySQL</span><span class="pill pill-blue">WebRTC</span><span class="pill pill-blue">Socket.IO</span><span class="pill pill-blue">OpenAI</span></div>
+
+                    <!-- Expandable Case Study -->
+                    <button class="case-study-toggle" onclick="toggleCaseStudy(this)"><i class="fas fa-chevron-down"></i> View Case Study</button>
+                    <div class="case-study-panel">
+                        <div class="case-study-row">
+                            <div class="cs-block"><h5><i class="fas fa-exclamation-triangle icon-cyan"></i> Problem</h5><p>Delivering low-latency chat and calling on budget infrastructure while keeping emotion analysis accurate and dependable.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-lightbulb icon-purple"></i> Solution</h5><p>Split signaling to a dedicated Node.js service and combined OpenAI sentiment inference with a lightweight fallback classifier.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-chart-line icon-blue"></i> Result</h5><p>Fully functional chat with mood-based UI adaptation, real-time calling, and 85%+ emotion classification accuracy.</p></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/24-7.git"><i class="fab fa-github"></i> Code</a>
-                    <a href="https://cafe24-7.netlify.app/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Vaibhav-1430/kuch-nhi-chat.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Source Code</a>
                 </div>
             </div>
 
-            <!-- Project 3 (GaramDoodh) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">GaramDoodh &mdash; Daily Essentials</h3>
-                    <i class="fas fa-shopping-basket project-icon-badge" style="color: #f59e0b;"></i>
-                </div>
-                <p class="project-desc">Secure hostel-based daily essentials commerce platform featuring bullet-proof
-                    OTP login and an admin order-management interface.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-pink-pill">HTML</span>
-                    <span class="tech-pill bg-blue-pill">CSS</span>
-                    <span class="tech-pill bg-orange-pill">JavaScript</span>
-                    <span class="tech-pill bg-gray-pill">OTP Auth</span>
+            <!-- Civil DPR Featured -->
+            <div class="project-card project-featured" id="project-civil-dpr" data-tilt data-mode-card="frontend">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>Civil DPR - Construction Management</h3><div class="featured-tag"><i class="fas fa-star"></i> Featured</div></div>
+                    <p class="project-desc">Android app for civil DPR with GPS photo verification, role-based attendance tracking, and consistent project mapping for Site Engineers and Supervisors.</p>
+                    <div class="tech-pills"><span class="pill pill-blue">Java</span><span class="pill pill-orange">Firebase</span><span class="pill pill-cyan">Android SDK</span></div>
+                    <button class="case-study-toggle" onclick="toggleCaseStudy(this)"><i class="fas fa-chevron-down"></i> View Case Study</button>
+                    <div class="case-study-panel">
+                        <div class="case-study-row">
+                            <div class="cs-block"><h5><i class="fas fa-exclamation-triangle icon-cyan"></i> Problem</h5><p>Field teams were logging attendance under incorrect projects because role context and project mapping were not consistently preserved.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-lightbulb icon-purple"></i> Solution</h5><p>Introduced role-scoped dashboards, persistent active-project state, and validation checks before attendance and DPR submissions.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-chart-line icon-blue"></i> Result</h5><p>Cleaner workflow execution, fewer mapping errors, and higher confidence in daily attendance and DPR reporting quality.</p></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/milk_project.git"><i class="fab fa-github"></i> Code</a>
-                    <a href="https://garamdoodh.netlify.app/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://getmyapp11.netlify.app/download/CivilDpr.apk" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Vaibhav-1430/Civil-DPR.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a>
                 </div>
             </div>
 
-            <!-- Project 4 (Intrusion Detection) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">AI Intrusion Detection System</h3>
-                    <i class="fas fa-shield-virus project-icon-badge" style="color: #3b82f6;"></i>
-                </div>
-                <p class="project-desc">Machine learning-powered network security model geared to detect anomalous
-                    network traffic via intense feature engineering and hyperparameter tuning.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-orange-pill">Python</span>
-                    <span class="tech-pill bg-gray-pill">Scikit-learn</span>
-                    <span class="tech-pill bg-purple-pill">Pandas</span>
-                    <span class="tech-pill bg-cyan-pill">NumPy</span>
+            <!-- Cafe 24/7 -->
+            <div class="project-card" data-tilt data-mode-card="frontend">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>24/7 College Café</h3><i class="fas fa-hamburger project-badge" style="color:#f59e0b"></i></div>
+                    <p class="project-desc">Full-stack food ordering system with secure auth and admin dashboard.</p>
+                    <div class="tech-pills"><span class="pill pill-pink">HTML/CSS</span><span class="pill pill-orange">JS</span><span class="pill pill-purple">MongoDB</span><span class="pill pill-cyan">Netlify</span><span class="pill pill-blue">JWT</span></div>
+                    <button class="case-study-toggle" onclick="toggleCaseStudy(this)"><i class="fas fa-chevron-down"></i> Case Study</button>
+                    <div class="case-study-panel">
+                        <div class="case-study-row">
+                            <div class="cs-block"><h5><i class="fas fa-exclamation-triangle icon-cyan"></i> Problem</h5><p>Hostel students had no way to order food 24/7. Existing systems lacked auth and admin controls.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-lightbulb icon-purple"></i> Solution</h5><p>Built a serverless ordering backend with Netlify Functions, MongoDB Atlas, and JWT-based authentication.</p></div>
+                            <div class="cs-block"><h5><i class="fas fa-chart-line icon-blue"></i> Result</h5><p>Live ordering system with real cart, payment simulation, and admin inventory management.</p></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/Intrusion-Detection.git"><i class="fab fa-github"></i> Code</a>
-                    
+                    <a href="https://github.com/Vaibhav-1430/24-7.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://cafe24-7.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
             </div>
 
-            <!-- Project 5 (Web Security Scanner) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">Web Security Scanner + Chatbot</h3>
-                    <i class="fas fa-search-dollar project-icon-badge" style="color: #ec4899;"></i>
-                </div>
-                <p class="project-desc">Automated vulnerability scanning tool augmented with an AI chatbot that analyzes
-                    security threats and offers remediation port-scanning protocols.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-orange-pill">Python</span>
-                    <span class="tech-pill bg-purple-pill">Flask</span>
-                    <span class="tech-pill bg-cyan-pill">Nmap</span>
-                    <span class="tech-pill bg-gray-pill">AI Chatbot</span>
+            <!-- GaramDoodh -->
+            <div class="project-card" data-tilt data-mode-card="frontend">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>GaramDoodh — Daily Essentials</h3><i class="fas fa-shopping-basket project-badge" style="color:#f59e0b"></i></div>
+                    <p class="project-desc">Secure hostel commerce platform with OTP login and admin order management.</p>
+                    <div class="tech-pills"><span class="pill pill-pink">HTML</span><span class="pill pill-blue">CSS</span><span class="pill pill-orange">JS</span><span class="pill pill-gray">OTP Auth</span></div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/WebSecurity_Scanner.git"><i class="fab fa-github"></i> Code</a>
-                    <a href="https://websecurity-scanner.onrender.com/"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="https://github.com/Vaibhav-1430/milk_project.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://garamdoodh.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
             </div>
 
-            <!-- Project 6 (Construction Builder App) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">Construction Management App</h3>
-                    <i class="fas fa-hard-hat project-icon-badge" style="color: #f59e0b;"></i>
+            <!-- Intrusion Detection -->
+            <div class="project-card" data-tilt data-mode-card="ai">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>AI Intrusion Detection</h3><i class="fas fa-shield-virus project-badge" style="color:#3b82f6"></i></div>
+                    <p class="project-desc">ML-powered network security model detecting anomalous traffic via feature engineering.</p>
+                    <div class="tech-pills"><span class="pill pill-orange">Python</span><span class="pill pill-gray">Scikit-learn</span><span class="pill pill-purple">Pandas</span><span class="pill pill-cyan">NumPy</span></div>
                 </div>
-                <p class="project-desc">Android application streamlining civil DPR. Leverages GPS-based photo
-                    verification, real-time attendance tracking, and deep role-based DB structures.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-blue-pill">Java</span>
-                    <span class="tech-pill bg-orange-pill">Firebase</span>
-                    <span class="tech-pill bg-cyan-pill">Android SDK</span>
+                <div class="project-links"><a href="https://github.com/Vaibhav-1430/Intrusion-Detection.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a></div>
+            </div>
+
+            <!-- Web Security Scanner -->
+            <div class="project-card" data-tilt data-mode-card="ai">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>Web Security Scanner + Chatbot</h3><i class="fas fa-search-dollar project-badge" style="color:#ec4899"></i></div>
+                    <p class="project-desc">Automated vulnerability scanner with AI chatbot for threat analysis and remediation.</p>
+                    <div class="tech-pills"><span class="pill pill-orange">Python</span><span class="pill pill-purple">Flask</span><span class="pill pill-cyan">Nmap</span><span class="pill pill-gray">AI Bot</span></div>
                 </div>
                 <div class="project-links">
-                    <a href="#"><i class="fab fa-github"></i> Code</a>
-                    <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Vaibhav-1430/WebSecurity_Scanner.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://websecurity-scanner.onrender.com/" target="_blank" rel="noopener noreferrer" class="proj-link live"><i class="fas fa-external-link-alt"></i> Demo</a>
                 </div>
             </div>
 
-            <!-- Project 7 (PADH LO) -->
-            <div class="project-card glass tilt-card glow-border hover-glow">
-                <div class="project-header">
-                    <h3 style="font-size: 1.2rem; color: var(--neon-cyan);">E-Learning Platform with AI Tutor</h3>
-                    <i class="fas fa-graduation-cap project-icon-badge" style="color: #f59e0b;"></i>
-                </div>
-                <p class="project-desc">Interactive learning platform with AI-powered personalized tutoring and adaptive
-                    quizzes.</p>
-                <div class="tech-stack">
-                    <span class="tech-pill bg-pink-pill">Flask</span>
-                    <span class="tech-pill bg-orange-pill">JavaScript</span>
-                    <span class="tech-pill bg-purple-pill">Tailwind CSS</span>
-                    <span class="tech-pill bg-orange-pill">AI Integration</span>
+            
+
+            <!-- E-Learning -->
+            <div class="project-card" data-tilt data-mode-card="ai">
+                <div class="card-glow"></div>
+                <div class="project-top">
+                    <div class="project-header"><h3>E-Learning + AI Tutor</h3><i class="fas fa-graduation-cap project-badge" style="color:#f59e0b"></i></div>
+                    <p class="project-desc">Interactive learning platform with AI-powered personalized tutoring and adaptive quizzes.</p>
+                    <div class="tech-pills"><span class="pill pill-pink">Flask</span><span class="pill pill-orange">JS</span><span class="pill pill-purple">Tailwind</span><span class="pill pill-orange">AI</span></div>
                 </div>
                 <div class="project-links">
-                    <a href="https://github.com/Vaibhav-1430/e-learning-Website.git"><i class="fab fa-github"></i> Code</a>
-                    <a href="https://padhloindia.netlify.app/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    <a href="https://github.com/Vaibhav-1430/e-learning-Website.git" target="_blank" rel="noopener noreferrer" class="proj-link"><i class="fab fa-github"></i> Code</a>
+                    <a href="https://padhloindia.netlify.app/" target="_blank" rel="noopener noreferrer" class="proj-link live"><i class="fas fa-external-link-alt"></i> Live</a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Achievements & Certifications Section -->
-    <section id="achievements" class="about section">
-        <h2 class="section-title">Achievements & Certifications</h2>
-        <div class="skills-container reveal"
-            style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+    <!-- ═══════════════════ AI DEMO: FRAUD DETECTOR ═══════════════════ -->
+    <section id="demo" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;live_demo&gt;</span>
+            <h2 class="section-title">AI Fraud Detection — Live Demo</h2>
+            <div class="section-line"></div>
+            <p class="section-subtitle">Experience a simulated AI-powered fraud detection system. Enter transaction details to get an instant risk assessment.</p>
+        </div>
 
-            <div class="skills-category glass glow-border hover-glow">
-                <h3 style="margin-bottom: 20px;"><i class="fas fa-trophy neon-cyan-text"></i> Competitions</h3>
-                <ul style="color: var(--text-muted); font-size: 1.05rem; margin-left: 20px; line-height: 1.8;">
-                    <li><strong>Participant:</strong> Adobe India Hackathon <span style="color: var(--neon-cyan);"><i
-                                class="fas fa-star ml-2"></i></span></li>
-                    <li><strong>Participant:</strong> IIT Delhi UX Hackathon <span style="color: var(--neon-cyan);"><i
-                                class="fas fa-star ml-2"></i></span></li>
-                    <li class="mt-2 text-main" style="color: var(--text-main);">Built <strong>5+ real-world
-                            implementations</strong> spanning AI, Web, and Cybersecurity.</li>
+        <div class="demo-container">
+            <div class="demo-card">
+                <div class="demo-header">
+                    <div class="demo-status"><span class="badge-dot"></span> System Online</div>
+                    <span class="demo-label">Transaction Analyzer v2.1</span>
+                </div>
+                <div class="demo-form">
+                    <div class="demo-field">
+                        <label for="txn-amount">Transaction Amount ($)</label>
+                        <input type="number" id="txn-amount" placeholder="e.g. 5000" value="2500">
+                    </div>
+                    <div class="demo-field">
+                        <label for="txn-location">Location</label>
+                        <select id="txn-location">
+                            <option value="domestic">Domestic</option>
+                            <option value="international">International</option>
+                            <option value="vpn">VPN / Proxy Detected</option>
+                        </select>
+                    </div>
+                    <div class="demo-field">
+                        <label for="txn-time">Transaction Time</label>
+                        <select id="txn-time">
+                            <option value="day">Daytime (9AM - 6PM)</option>
+                            <option value="evening">Evening (6PM - 12AM)</option>
+                            <option value="night">Late Night (12AM - 6AM)</option>
+                        </select>
+                    </div>
+                    <div class="demo-field">
+                        <label for="txn-frequency">Recent Transactions (24hr)</label>
+                        <input type="number" id="txn-frequency" placeholder="e.g. 3" value="2">
+                    </div>
+                    <button class="btn-primary demo-btn" id="demo-analyze" onclick="analyzeFraud()">
+                        <span>Analyze Transaction</span>
+                        <i class="fas fa-shield-alt"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="demo-result" id="demo-result">
+                <div class="result-waiting">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Enter transaction details and click Analyze</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ACHIEVEMENTS ═══════════════════ -->
+    <section id="achievements" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;achievements&gt;</span>
+            <h2 class="section-title">Achievements & Certifications</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="achievements-grid">
+            <div class="achievement-card" data-tilt>
+                <div class="card-glow"></div>
+                <div class="achievement-icon icon-cyan"><i class="fas fa-trophy"></i></div>
+                <h3>Competitions</h3>
+                <ul class="achievement-list">
+                    <li><strong>Participant:</strong> Adobe India Hackathon <i class="fas fa-star star-icon"></i></li>
+                    <li><strong>Participant:</strong> IIT Delhi UX Hackathon <i class="fas fa-star star-icon"></i></li>
+                    <li><strong>Participant:</strong> India Innovates 2026 Hackathon <i class="fas fa-star star-icon"></i></li>
+                    <li class="highlight">Built <strong>8+ real-world implementations</strong> spanning AI, Web, Android, and Cybersecurity.</li>
                 </ul>
             </div>
-
-            <div class="skills-category glass glow-border hover-glow">
-                <h3 style="margin-bottom: 20px;"><i class="fas fa-certificate neon-purple-text"></i> Certifications</h3>
-                <ul style="color: var(--text-muted); font-size: 1.05rem; margin-left: 20px; line-height: 1.8;">
-                    <li><strong>Machine Learning</strong> &mdash; InternForte</li>
-                    <li><strong>Ethical Hacking</strong> &mdash; Udemy</li>
+            <div class="achievement-card" data-tilt>
+                <div class="card-glow"></div>
+                <div class="achievement-icon icon-purple"><i class="fas fa-certificate"></i></div>
+                <h3>Certifications</h3>
+                <ul class="achievement-list">
+                    <li><strong>Machine Learning</strong> — InternForte</li>
+                    <li><strong>Ethical Hacking</strong> — Udemy</li>
+                    <li><strong>Participation Certificate</strong> — India Innovates 2026 Hackathon</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-container reveal">
-            <div class="contact-info glass glow-border">
-                <h3>Let's talk 💬</h3>
-                <p>I'm continuously searching for impactful engineering opportunities. Reach out if you want to
-                    collaborate on creating intelligent, scalable applications!</p>
+    <!-- ═══════════════════ WHY HIRE ME ═══════════════════ -->
+    <section id="hire" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;hire_me&gt;</span>
+            <h2 class="section-title">Why You Should Hire Me</h2>
+            <div class="section-line"></div>
+        </div>
 
-                <div style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 20px;">
-                    <p class="mb-2"><i class="fas fa-phone-alt text-neon-cyan" style="width: 30px;"></i> +91 6387951651
-                    </p>
-                    <p><i class="fas fa-envelope text-neon-purple" style="width: 30px;"></i> yadavvaibhav688@gmail.com
-                    </p>
+        <div class="hire-grid">
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">01</div>
+                <h4>I Ship Real Products</h4>
+                <p>Not just assignments — 7+ deployed, production-grade applications spanning AI, Web, and Android.</p>
+            </div>
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">02</div>
+                <h4>Full-Stack Minded</h4>
+                <p>From React frontends to Flask APIs to Firebase real-time DBs — I own the entire stack.</p>
+            </div>
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">03</div>
+                <h4>AI-First Thinking</h4>
+                <p>I integrate ML models into real products — sentiment analysis, fraud detection, intelligent tutoring.</p>
+            </div>
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">04</div>
+                <h4>Security Obsessed</h4>
+                <p>Built vulnerability scanners, practiced ethical hacking. Security is not an afterthought for me.</p>
+            </div>
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">05</div>
+                <h4>Rapid Learner</h4>
+                <p>Taught myself WebRTC, Socket.IO, GSAP, and Three.js by building projects — not just watching tutorials.</p>
+            </div>
+            <div class="hire-card" data-tilt>
+                <div class="hire-number">06</div>
+                <h4>I Build This Portfolio</h4>
+                <p>This entire website — animations, chatbot, fraud demo, terminal — I coded it all from scratch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <section id="contact" class="section">
+        <div class="section-header">
+            <span class="section-tag">&lt;contact&gt;</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info-card">
+                <h3>Let's Build<br>Something <span class="gradient-text">Incredible</span></h3>
+                <p>I'm searching for impactful engineering opportunities. Let's collaborate on building intelligent, scalable applications!</p>
+                <div class="contact-details">
+                    <div class="contact-item"><i class="fas fa-phone-alt icon-cyan"></i><span>+91 6387951651</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope icon-purple"></i><span>yadavvaibhav688@gmail.com</span></div>
                 </div>
-
-                <div class="social-links mt-4">
-                    <a href="mailto:yadavvaibhav688@gmail.com" class="social-icon hover-glow" aria-label="Email"><i
-                            class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/Vaibhav-1430" target="_blank" class="social-icon hover-glow" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/vaibhav1104" target="_blank" class="social-icon hover-glow"
-                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <div class="contact-socials">
+                    <a href="mailto:yadavvaibhav688@gmail.com" class="social-link magnetic"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Vaibhav-1430" target="_blank" rel="noopener noreferrer" class="social-link magnetic"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/vaibhav1104" target="_blank" rel="noopener noreferrer" class="social-link magnetic"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <form class="contact-form glass glow-border" id="contact-form">
-                <div class="form-group">
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-field">
+                    <input type="text" id="name" required placeholder=" ">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" required placeholder="John Doe">
+                    <div class="field-line"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-field">
+                    <input type="email" id="email" required placeholder=" ">
                     <label for="email">Your Email</label>
-                    <input type="email" id="email" required placeholder="john@example.com">
+                    <div class="field-line"></div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" rows="5" required placeholder="Your message here..."></textarea>
+                <div class="form-field">
+                    <textarea id="message" rows="5" required placeholder=" "></textarea>
+                    <label for="message">Your Message</label>
+                    <div class="field-line"></div>
                 </div>
-                <button type="submit" class="btn btn-primary w-full mt-2" style="justify-content: center;">Send Message
-                    <i class="fas fa-paper-plane"></i></button>
+                <button type="submit" class="btn-primary btn-submit" id="btn-submit">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer glass">
-        <p>&copy; 2026 Designed & Built by Vaibhav Kumar Yadav </p>
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo"><span class="logo-br">&lt;</span><span class="logo-nm">VKY</span><span class="logo-br">/&gt;</span></div>
+            <p>&copy; 2026 Designed & Built by <strong>Vaibhav Kumar Yadav</strong></p>
+            <div class="footer-links">
+                <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+            </div>
+            <div class="footer-hint">Press <kbd>`</kbd> for terminal mode</div>
+        </div>
     </footer>
+
+    <!-- ═══════════════════ AI CHATBOT ═══════════════════ -->
+    <button class="chat-toggle" id="chat-toggle" aria-label="Open AI Assistant">
+        <i class="fas fa-robot"></i>
+        <span class="chat-pulse"></span>
+    </button>
+
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                    <strong>VKY Assistant</strong>
+                    <span class="chat-status-text"><span class="badge-dot small"></span> Online</span>
+                </div>
+            </div>
+            <button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-msg bot">
+                <div class="chat-bubble">I am Vaibhav's assistant. Ask about skills, Civil DPR, project impact, or hiring fit.</div>
+            </div>
+            <div class="chat-suggestions" id="chat-suggestions">
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">Tell me about Vaibhav</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">What are his skills?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">Tell me about Civil DPR</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">Why should I hire him?</button>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about skills, projects..." autocomplete="off">
+            <button id="chat-send" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ TERMINAL MODE ═══════════════════ -->
+    <div class="terminal-overlay" id="terminal-overlay">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                <span class="terminal-title">vaibhav@portfolio:~</span>
+                <button class="terminal-close" onclick="closeTerminal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="terminal-line">Welcome to Vaibhav's Portfolio Terminal v1.0</div>
+                <div class="terminal-line">Type <span class="t-cmd">help</span> to see available commands.</div>
+                <div class="terminal-line">&nbsp;</div>
+            </div>
+            <div class="terminal-input-row">
+                <span class="terminal-prompt">vaibhav@portfolio:~$</span>
+                <input type="text" id="terminal-input" autofocus spellcheck="false">
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
